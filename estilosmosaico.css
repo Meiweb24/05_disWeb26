@@ -1,0 +1,66 @@
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f5f5f5;
+}
+
+h2{
+    text-align:center;
+}
+
+.contenedor{
+    width:80%;
+    margin:auto;
+}
+
+/* SECCION VIDEOS */
+
+.videos{
+    background:#2fa4c7;
+    padding:30px;
+}
+
+.grid-videos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.video{
+    background:white;
+    padding:20px;
+    text-align:center;
+    border:1px solid gray;
+}
+
+/* SECCION MUSICA */
+
+.musica{
+    margin-top:40px;
+}
+
+.grid-musica{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border:1px solid black;
+}
+
+.columna{
+    display:grid;
+    grid-template-rows:auto 1fr 1fr;
+    border:1px solid black;
+}
+
+.columna h3{
+    background:#2fa4c7;
+    margin:0;
+    padding:10px;
+    text-align:center;
+}
+
+.item{
+    border-top:1px solid black;
+    padding:25px;
+    text-align:center;
+    background:white;
+}
