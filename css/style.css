@@ -1,0 +1,219 @@
+/* Paleta de colores basada en la imagen */
+:root {
+    --uis-turquesa: #20a898;
+    --uis-negro: #000000;
+    --uis-gris-oscuro: #2c3e3c;
+    --uis-texto-claro: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: var(--uis-turquesa);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+}
+
+.Logo {
+    width: 60px;
+    height: auto;
+    background-color: white; /* Recuadro blanco del logo */
+    padding: 5px;
+    border: 1px solid #777;
+    margin-right: 50px;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: var(--uis-negro);
+    font-weight: normal;
+}
+
+/* Menú Superior */
+.Menu {
+    background-color: var(--uis-negro);
+}
+
+.Menu ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.Menu a {
+    color: var(--uis-texto-claro);
+    text-decoration: none;
+}
+
+/* Cuerpo Principal */
+.main-container {
+    display: flex;
+    flex-direction: row; /* Alinea los hijos horizontalmente */
+    align-items: stretch; /* Hace que ambos midan lo mismo de alto */
+    min-height: 500px;    /* Ajusta según necesites */
+    background-color: #2c3e3c; /* Color gris oscuro de tu imagen */
+}
+
+/* Menú Lateral */
+.Lateral {
+    background-color: var(--uis-gris-oscuro);
+    width: 250px;
+    padding: 20px;
+}
+
+.Lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.Lateral li {
+    margin-bottom: 10px;
+}
+
+.Lateral a {
+    color: var(--uis-texto-claro);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Sección del Iframe */
+.Contenido {
+    flex: 1;
+    background-color: white;
+    padding: 15px;
+    display: flex;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #ccc; /* El borde que se ve en la imagen */
+}
+
+/* Footer */
+footer {
+    border: 3px solid #000000;
+    background-color: var(--uis-turquesa);
+    text-align: center;
+    padding: 5px;
+    color: var(--uis-texto-claro);
+}
+/* Configuración base para el enlace con tooltip */
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+/* El cuadro del tooltip (oculto por defecto) */
+[data-tooltip]::after {
+    content: attr(data-tooltip); /* Toma el texto del atributo HTML */
+    position: absolute;
+    bottom: 125%; /* Aparece arriba del enlace */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+    border: 1px solid var(--uis-turquesa);
+}
+
+/* La pequeña flecha del tooltip */
+[data-tooltip]::before {
+    content: "";
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+/* Mostrar al pasar el mouse */
+[data-tooltip]:hover::after,
+[data-tooltip]:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ajuste para la barra lateral: que el tooltip salga a la derecha en lugar de arriba si prefieres */
+.Lateral [data-tooltip]::after {
+    bottom: auto;
+    left: 105%; /* Mueve el tooltip a la derecha del texto */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Lateral [data-tooltip]::before {
+    bottom: auto;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-color: transparent rgba(0, 0, 0, 0.85) transparent transparent;
+}
+
+/* --- RESPONSIVE < 576px --- */
+/* --- RESPONSIVE < 576px --- */
+@media (max-width: 576px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .Logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    /* CORRECCIÓN: Usamos .main-container para que el iframe baje */
+    .main-container {
+        display: flex;
+        flex-direction: column; /* Esto pone el iframe debajo del nav lateral */
+        min-height: auto; 
+    }
+
+    .Lateral {
+        width: 100%; /* El nav ocupa todo el ancho arriba */
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .Menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .Contenido {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box; /* Evita que el padding rompa el ancho */
+    }
+
+    iframe {
+        height: 400px; /* Le damos una altura fija para que sea visible en móvil */
+        width: 100%;
+    }
+}

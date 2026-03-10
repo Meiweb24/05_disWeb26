@@ -1,22 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Grid-flex-tooltip</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header></header>
-    <a href="index.html"><img src="" alt="Logo_uis" class="Logo" ></a>
-    <h1>UNIVERSIDAD INDUSTRIAL DE SANTANDER</h1>
-    <nav class="Menu"></nav>
-    <ul>
-        <li><a href="./pages/forms.html">Formulario Html 5</a></li>
-        <li><a href="./pages/wikipedia.html">Wikipedia</a></li>
-        <li><a href="./pages/unafoto.html">Una Fotografia</a></li>
-    </ul>
-    <nav class="Lateral"></nav>
+    <header>
+        <a href="inicio.html" target="contenedor_principal">
+            <img src="./images/Logo.png" alt="Logo_uis" class="Logo">
+        </a>
+        <h1>UNIVERSIDAD INDUSTRIAL DE SANTANDER</h1>
+    </header>
+    
+    <nav class="Menu">
+        <ul>
+            <li><a href="./pages/forms.html" target="contenedor_principal" data-tooltip="Formulario HTML 5">Formulario HTML 5</a></li>
+            <li><a href="https://es.wikipedia.org/wiki/Wikipedia:Portada" target="contenedor_principal" data-tooltip="Wikipedia">Wikipedia</a></li>
+            <li><a href="./pages/unafoto.html" target="contenedor_principal" data-tooltip="Una Fotografía">Una Fotografía</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <nav class="Lateral">
+            <ul>
+                <li><a href="cuento.html" target="contenedor_principal" data-tooltip="Cuento">Cuento</a></li>
+                <li><a href="arcoiris.html" target="contenedor_principal" data-tooltip="Arcoiris">Arcoiris</a></li>
+                <li><a href="mosaico.html" target="contenedor_principal" data-tooltip="Mosaico">Mosaico</a></li>
+            </ul>
+        </nav>
+
+        <section class="Contenido">
+            <iframe src="inicio.html" name="contenedor_principal" id="main_iframe" frameborder="0"></iframe>
+        </section>
+    </div>
+
     <footer>
         <p>Los Alumnos</p>
     </footer>
