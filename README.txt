@@ -19,3 +19,5 @@ La barra de menú incluye tooltips en las opciones.
 El mosaico de audios y videos está organizado utilizando CSS Grid.
 
 El footer muestra a los integrantes del grupo
+
+Finalmente aqui el despliegue en la page de git hub  https://meiweb24.github.io/05_disWeb26/
