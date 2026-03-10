@@ -51,7 +51,7 @@ header h1 {
     padding: 10px 0;
 }
 
-.Menu a {
+.Menu a , .Alumnos{
     color: var(--uis-texto-claro);
     text-decoration: none;
 }
@@ -173,10 +173,105 @@ footer {
     transform: translateY(-50%);
     border-color: transparent rgba(0, 0, 0, 0.85) transparent transparent;
 }
+/* CUENTO */
+.cuento{
+    font-family:"DM Sans"
+}
+.cuento::first-letter{
+    color: blue;
+    font-size: 30px;
+}
+.cuento::first-line{
+    color:darkcyan;
+    font-weight: bond;
+}
+
+/* Arcoiris */
+.center{
+    text-align: center;
+}
+
+.arcoiris{
+    font-family:"Fredoka";
+}
+.arcoiris span:nth-child(1){color:blueviolet; font-size:100px}
+.arcoiris span:nth-child(2){color:blue; font-size:24px; font-weight: 500;}
+.arcoiris span:nth-child(3){color:cyan; font-size:55px}
+.arcoiris span:nth-child(4){color:blue; font-size:24px; font-weight: 500;}
+
+.arcoiris-text{
+    font-size: 22px;
+    color:gray;
+    font-weight: bold;
+}
+.arcoiris-text::first-letter{
+    color:blueviolet;
+    font-size:40px;
+}
+
+.par2{
+    text-decoration: underline;
+    font-size: 22px;
+    color:gray;
+    font-weight: bold;
+}
+.carrusel-container {
+    width: 100%;
+    max-width: 600px; /* Ajustado para que quepa bien en tu sección de contenido */
+    margin: 20px auto;
+    overflow: hidden;
+    border: 3px solid var(--uis-turquesa);
+    border-radius: 8px;
+}
+
+.carrusel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Hace que las imágenes "salten" a su posición */
+    scroll-behavior: smooth;
+    gap: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+/* Ocultar barra de scroll en navegadores modernos */
+.carrusel::-webkit-scrollbar {
+    display: none;
+}
+
+.fruta-card {
+    flex: 0 0 80%; /* En móviles se ve una fruta casi completa */
+    scroll-snap-align: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 10px;
+}
+
+.fruta-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.fruta-card p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--uis-gris-oscuro);
+}
+
+/* Ajuste para pantallas más grandes (Escritorio) */
+
+
 
 /* --- RESPONSIVE < 576px --- */
 /* --- RESPONSIVE < 576px --- */
 @media (max-width: 576px) {
+    .fruta-card {
+        flex: 0 0 45%; /* Se ven dos frutas a la vez */
+    }
     header {
         flex-direction: column;
         text-align: center;

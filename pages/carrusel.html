@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Frutas - UIS</title>
+    <style>
+        /* Variables de color para mantener la línea de la UIS */
+        :root {
+            --uis-turquesa: #20a898;
+            --uis-gris-oscuro: #2c3e3c;
+            --uis-blanco: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Evita scrolls dobles dentro del iframe */
+            background-color: white;
+        }
+
+        .carrusel-wrapper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slides-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            max-width: 90%;
+            max-height: 70%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border: 4px solid var(--uis-turquesa);
+        }
+
+        .caption {
+            margin-top: 15px;
+            font-size: 1.5rem;
+            color: var(--uis-gris-oscuro);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Indicadores (Puntos) */
+        .dots-container {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--uis-turquesa);
+            transform: scale(1.3);
+        }
+
+        /* Animación suave para el cambio de imagen */
+        @keyframes zoomFade {
+            from { transform: scale(1.05); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .slide.active img {
+            animation: zoomFade 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carrusel-wrapper">
+        <div class="slides-container">
+            <div class="slide active">
+                <img src="../images/banano.jpg "alt="Banano">
+                <div class="caption">Banano</div>
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=500" alt="Mango">
+                <div class="caption">Mango</div>
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?w=500" alt="Naranja">
+                <div class="caption">Naranja</div>
+            </div>
+            <div class="slide">
+                <img src="../images/piña.jpg" alt="Piña">
+                <div class="caption">Piña</div>
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1582281298055-e25b84a30b0b?w=500" alt="Sandia">
+                <div class="caption">Sandia</div>
+            </div>
+        </div>
+
+        <div class="dots-container">
+            <span class="dot active" onclick="jumpToSlide(0)"></span>
+            <span class="dot" onclick="jumpToSlide(1)"></span>
+            <span class="dot" onclick="jumpToSlide(2)"></span>
+            <span class="dot" onclick="jumpToSlide(3)"></span>
+            <span class="dot" onclick="jumpToSlide(4)"></span>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // Limpiar clases
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            // Activar nuevo index
+            currentIndex = (index + totalSlides) % totalSlides;
+            slides[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function jumpToSlide(index) {
+            clearInterval(autoPlay); // Reinicia el tiempo si el usuario hace clic
+            showSlide(index);
+            autoPlay = setInterval(nextSlide, 3000);
+        }
+
+        // Movimiento automático cada 3 segundos
+        let autoPlay = setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>

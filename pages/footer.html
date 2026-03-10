@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .contenedor {
+            border: 10px solid rgb(36, 104, 230);
+            background-color: #d4e7fc;
+            padding: 16px;
+            width: min(760px, 96vw);
+            box-sizing: border-box;
+        }
+
+        .cuadricula {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (max-width: 520px) {
+            .contenedor {
+                border-color: rgb(172, 25, 172);
+                background-color: #eeb9d6;
+            }
+
+            .contenedor,
+            .contenedor p,
+            .contenedor legend {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programación en la Web</h1>
+        <h2>Grupo B2</h2>
+    </header>
+    <div class="contenedor">
+    <div class="cuadricula">
+        <fieldset>
+            <legend>Estudiante</legend>
+            <p>Código: 2241691</p>
+            <p>Nombre: Diego Rojas</p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Estudiante</legend>
+            <p>Código: 2240045</p>
+            <p>Nombre: Juan Hernandez</p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Estudiante</legend>
+            <p>Código: 2240046</p>
+            <p>Nombre: Manuel Rivera</p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Estudiante</legend>
+            <p>Código: 2241545</p>
+            <p>Nombre: David Salazar</p>
+        </fieldset>
+    </div>
+    </div>
+</body>
+</html>
